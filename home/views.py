@@ -5,18 +5,21 @@ from django.http.response import HttpResponse
 from django.views.decorators.http import require_http_methods
 
 @require_http_methods(["GET"])
-def download(request):
-    # Define text file name
-    filename = 'file.json'
-    # Define the full file path
+def programmingCoursesdownload(request):
+    filename = 'programming_courses.json'
     filepath = MEDIA_ROOT + filename
-    # Open the file for reading content
     path = open(filepath, 'r')
-    # Set the mime type
     mime_type, _ = mimetypes.guess_type(filepath)
-    # Set the return value of the HttpResponse
     response = HttpResponse(path, content_type=mime_type)
-    # Set the HTTP header for sending to browser
     response['Content-Disposition'] = "attachment; filename=%s" % filename
-    # Return the response value
+    return response
+
+@require_http_methods(["GET"])
+def languageCoursesdownload(request):
+    filename = 'language_courses.json'
+    filepath = MEDIA_ROOT + filename
+    path = open(filepath, 'r')
+    mime_type, _ = mimetypes.guess_type(filepath)
+    response = HttpResponse(path, content_type=mime_type)
+    response['Content-Disposition'] = "attachment; filename=%s" % filename
     return response

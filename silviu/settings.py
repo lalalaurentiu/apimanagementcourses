@@ -45,18 +45,7 @@ INSTALLED_APPS = [
     #django-rest-framework
     'rest_framework',
 
-    #tailwind
-    'tailwind',
-    "theme",
-    'django_browser_reload',
 ]
-
-# tailwind dependenci
-TAILWIND_APP_NAME = 'theme'
-INTERNAL_IPS = [
-    "127.0.0.1",
-]
-NPM_BIN_PATH = r"C:\\Nodejs\\npm.cmd"
 
 #django-rest-framework
 REST_FRAMEWORK = {
@@ -75,7 +64,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    "django_browser_reload.middleware.BrowserReloadMiddleware",
 ]
 
 ROOT_URLCONF = 'silviu.urls'

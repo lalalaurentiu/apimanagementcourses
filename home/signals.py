@@ -1,12 +1,11 @@
-from django.db.models.signals import post_save, pre_delete
+from django.db.models.signals import post_save
 from django.dispatch import receiver
-from django.contrib.auth.models import User
 from silviu.settings import MEDIA_ROOT
-from .models import admin_programming_courses
+from .models import admin_programming_courses, admin_language_courses
 import json
 
 @receiver(post_save, sender=admin_programming_courses)
-def download(sender, instance, created, **kwargs):
+def progarmmingDownload(sender, instance, created, **kwargs):
     data = admin_programming_courses.objects.all()
     lst = []
     if created:
@@ -19,7 +18,25 @@ def download(sender, instance, created, **kwargs):
                 "level":i.level,
                 "exam_type":i.exam_type
             })
-    print(lst)
-    jsonfile = json.dumps(lst)
-    with open(f"{MEDIA_ROOT}/file.json", "w") as file:
+
+    jsonfile = json.dumps(lst,indent=4, sort_keys=True)
+    with open(f"{MEDIA_ROOT}/programming_courses.json", "w") as file:
+        file.write(jsonfile)
+
+@receiver(post_save, sender=admin_language_courses)
+def progarmmingDownload(sender, instance, created, **kwargs):
+    data = admin_language_courses.objects.all()
+    lst = []
+    if created:
+        for i in data:
+            lst.append({
+                "id":i.id,
+                "name":i.nume,
+                "instructor":i.instructor,
+                "start_date":str(i.start_date),
+                "level":i.level
+            })
+
+    jsonfile = json.dumps(lst ,indent=4, sort_keys=True)
+    with open(f"{MEDIA_ROOT}/language_courses.json", "w") as file:
         file.write(jsonfile)
