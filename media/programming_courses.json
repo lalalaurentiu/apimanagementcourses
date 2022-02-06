@@ -1,1 +1,26 @@
-[]
+[
+    {
+        "exam_type": "teoretic",
+        "id": 1,
+        "instructor": "Laurentiu",
+        "level": "proffessional",
+        "name": "Python",
+        "start_date": "2022-02-16"
+    },
+    {
+        "exam_type": "teoretic",
+        "id": 2,
+        "instructor": "Silviu",
+        "level": "proffessional",
+        "name": "Silviu",
+        "start_date": "2022-10-02"
+    },
+    {
+        "exam_type": "teoretic",
+        "id": 3,
+        "instructor": "Silviu",
+        "level": "proffessional",
+        "name": "java",
+        "start_date": "2022-02-16"
+    }
+]

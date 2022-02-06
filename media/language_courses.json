@@ -1,23 +1,9 @@
 [
     {
         "id": 1,
-        "instructor": "Marian",
+        "instructor": "Laurentiu",
         "level": "B2",
-        "name": "Engleza",
-        "start_date": "2022-02-21"
-    },
-    {
-        "id": 2,
-        "instructor": "Marian",
-        "level": "A1",
-        "name": "Engleza",
-        "start_date": "2022-02-23"
-    },
-    {
-        "id": 3,
-        "instructor": "Marian",
-        "level": "A1",
-        "name": "Engleza",
-        "start_date": "2022-02-23"
+        "name": "Franceza",
+        "start_date": "2022-02-16"
     }
 ]

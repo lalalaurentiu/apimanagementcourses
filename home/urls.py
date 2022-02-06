@@ -13,5 +13,5 @@ router.register(r'language', AdminLanguageCourseViewsets)
 urlpatterns = [
     path("download_language/",languageCoursesdownload, name="download_language"),
     path("download_programming/",programmingCoursesdownload, name="download_programming"),
-    path("api/", include(router.urls)),
+    re_path(r"^", include(router.urls)),
 ]

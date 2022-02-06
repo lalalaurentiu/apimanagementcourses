@@ -1,6 +1,6 @@
 from django.shortcuts import render
 import mimetypes
-from silviu.settings import MEDIA_ROOT
+from management.settings import MEDIA_ROOT
 from django.http.response import HttpResponse
 from django.views.decorators.http import require_http_methods
 

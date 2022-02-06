@@ -1,14 +1,15 @@
-from django.db.models.signals import post_save
+from django.db.models.signals import post_delete, post_save
 from django.dispatch import receiver
-from silviu.settings import MEDIA_ROOT
+from management.settings import MEDIA_ROOT
 from .models import admin_programming_courses, admin_language_courses
 import json
 
 @receiver(post_save, sender=admin_programming_courses)
-def progarmmingDownload(sender, instance, created, **kwargs):
+@receiver(post_delete, sender=admin_programming_courses)
+def progarmmingDownload(sender, instance, created=None, **kwargs):
     data = admin_programming_courses.objects.all()
     lst = []
-    if created:
+    if created or instance:
         for i in data:
             lst.append({
                 "id":i.id,
@@ -24,10 +25,11 @@ def progarmmingDownload(sender, instance, created, **kwargs):
         file.write(jsonfile)
 
 @receiver(post_save, sender=admin_language_courses)
-def progarmmingDownload(sender, instance, created, **kwargs):
+@receiver(post_delete, sender=admin_language_courses)
+def progarmmingDownload(sender, instance, created=None, **kwargs):
     data = admin_language_courses.objects.all()
     lst = []
-    if created:
+    if created or instance:
         for i in data:
             lst.append({
                 "id":i.id,
